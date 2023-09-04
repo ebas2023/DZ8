@@ -50,23 +50,11 @@ void PrintArray(int[,] matrix)
     }
 
 }
-void PrintArray1(int[] itog)
-{
-
-    for (int i = 0; i < itog.GetLength(0); i++)
-    {
-
-        Console.Write($"({itog[i]})");
-
-    }
-
-}
 
 void PrintArray2(int[,] matrix)
 
 {
-    
-    int Min =0;
+    int Min = 0;
     int K = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -74,18 +62,17 @@ void PrintArray2(int[,] matrix)
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             S = S + matrix[i, j];
-            Console.Write($"(s={S})");
-          
         }
-        if (Min > S)
+        if (i == 0)
         {
             Min = S;
-            K = i;
         }
-    
+        if (S <= Min)
+        {
+            Min = S;
+            K = i + 1;
+        }
 
     }
-
-
-    Console.Write($"(K={K+1})");
+    Console.Write($"Номер строки с наименьшей суммой эдементов={K}");
 }
